@@ -104,7 +104,7 @@
     <label for="time">Time:</label>
     <input type="time" id="time">
 
-    <button onclick="scheduleAppointment()">Schedule Appointment</button>
+    <button onclick="scheduleAppointment(); playSound();">Schedule Appointment</button>
 
     <div class="appointments">
       <h2>Scheduled Appointments</h2>
@@ -139,6 +139,7 @@
         if (timeUntilAppointment > 0) {
           setTimeout(() => {
             alert(`Reminder: ${title} at ${date} ${time}`);
+            playSound()
           }, timeUntilAppointment);
         }
 
@@ -155,6 +156,10 @@
       const appointmentItem = button.parentElement;
       appointmentItem.remove();
     }
+    function playSound() {
+         var audio = new Audio('http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_shoot.wav');
+         audio.play();
+         }
   </script>
 
 </body>
